@@ -1,45 +1,10 @@
 {
   "name": "lstudiox-moon-script",
-  "version": "2.1.4",
-  "description": "Roblox Moon Script 展示网站 - 包含完整的脚本代码和教程",
-  "main": "index.html",
-  "scripts": {
-    "dev": "live-server . --port=3000 --host=localhost",
-    "build": "echo '静态网站，无需构建' && exit 0",
-    "start": "live-server . --port=3000",
-    "test": "node test-deploy.js",
-    "lint": "echo '代码检查跳过...'",
-    "predeploy": "echo '部署前检查...' && node test-deploy.js",
-    "deploy": "echo '运行: vercel --prod'"
-  },
-  "keywords": [
-    "roblox",
-    "script",
-    "moon-script",
-    "lstudiox",
-    "gaming",
-    "lua",
-    "html"
-  ],
-  "author": "LStudioX Team",
-  "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
-    "live-server": "^1.2.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lstudiox/moon-script.git"
-  },
-  "bugs": {
-    "url": "https://github.com/lstudiox/moon-script/issues"
-  },
-  "homepage": "https://moon.lstudiox.dev",
+  "version": "1.0.0",
+  "description": "LStudioX Moon Script for Roblox - Complete showcase",
   "private": true,
-  "contributors": [
-    "LStudioX <contact@lstudiox.dev>"
-  ],
-  "volta": {
-    "node": "18.19.0"
+  "scripts": {
+    "dev": "echo 'Open index.html in browser'",
+    "test": "echo 'No tests specified'"
   }
 }
