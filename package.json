@@ -5,11 +5,12 @@
   "main": "index.html",
   "scripts": {
     "dev": "live-server . --port=3000 --host=localhost",
-    "build": "echo '静态网站，无需构建'",
+    "build": "echo '静态网站，无需构建' && exit 0",
     "start": "live-server . --port=3000",
-    "vercel-build": "echo 'Building for Vercel...'",
-    "test": "echo '运行测试...' && node test-deploy.js",
-    "lint": "echo '代码检查...'"
+    "test": "node test-deploy.js",
+    "lint": "echo '代码检查跳过...'",
+    "predeploy": "echo '部署前检查...' && node test-deploy.js",
+    "deploy": "echo '运行: vercel --prod'"
   },
   "keywords": [
     "roblox",
@@ -18,29 +19,27 @@
     "lstudiox",
     "gaming",
     "lua",
-    "exploit"
+    "html"
   ],
   "author": "LStudioX Team",
   "license": "MIT",
-  "dependencies": {
-    "live-server": "^1.2.2"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "vercel": "^28.18.0"
+    "live-server": "^1.2.2"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lstudiox/moon-script.git"
   },
   "bugs": {
-    "url": "https://github.com/ljxttkx1228/moon-script/"
+    "url": "https://github.com/lstudiox/moon-script/issues"
   },
   "homepage": "https://moon.lstudiox.dev",
-  "engines": {
-    "node": ">=14.0.0"
-  },
   "private": true,
   "contributors": [
     "LStudioX <contact@lstudiox.dev>"
-  ]
+  ],
+  "volta": {
+    "node": "18.19.0"
+  }
 }
