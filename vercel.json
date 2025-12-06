@@ -4,65 +4,24 @@
   "public": true,
   "builds": [
     {
-      "src": "index.html",
-      "use": "@vercel/static"
-    },
-    {
       "src": "*.html",
       "use": "@vercel/static"
     },
     {
-      "src": "public/*",
+      "src": "public/**/*",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/index.html",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/robots.txt",
-      "dest": "/public/robots.txt"
-    },
-    {
-      "src": "/sitemap.xml",
-      "dest": "/public/sitemap.xml"
-    },
-    {
-      "src": "/favicon.ico",
-      "dest": "/public/favicon.ico"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/public/assets/$1"
-    },
-    {
-      "src": "/images/(.*)",
-      "dest": "/public/images/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/index.html",
-      "status": 200
+      "dest": "/index.html"
     }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-DNS-Prefetch-Control",
-          "value": "on"
-        },
-        {
-          "key": "Strict-Transport-Security",
-          "value": "max-age=63072000; includeSubDomains; preload"
-        },
         {
           "key": "X-Frame-Options",
           "value": "DENY"
@@ -76,16 +35,8 @@
           "value": "strict-origin-when-cross-origin"
         },
         {
-          "key": "Permissions-Policy",
-          "value": "camera=(), microphone=(), geolocation=()"
-        },
-        {
           "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=86400"
-        },
-        {
-          "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; font-src 'self' cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self';"
+          "value": "public, max-age=3600"
         }
       ]
     },
@@ -99,15 +50,12 @@
       ]
     }
   ],
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "regions": ["hkg1", "sfo1"],
-  "github": {
-    "silent": true,
-    "autoAlias": true
-  },
-  "alias": ["lstudiox.dev", "lstudiox.vercel.app"],
+  "rewrites": [
+    {
+      "source": "/api/version",
+      "destination": "/api/version.json"
+    }
+  ],
   "redirects": [
     {
       "source": "/discord",
@@ -118,20 +66,9 @@
       "source": "/github",
       "destination": "https://github.com/lstudiox/moon-script",
       "permanent": false
-    },
-    {
-      "source": "/docs",
-      "destination": "/index.html#tutorial",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/version",
-      "destination": "/api/version.json"
     }
   ],
   "trailingSlash": false,
   "cleanUrls": true,
-  "framework": null
+  "framework": "static"
 }
